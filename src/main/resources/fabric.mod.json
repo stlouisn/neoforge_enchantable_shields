@@ -3,7 +3,7 @@
   "id": "beetooltip",
   "version": "${version}",
   "name": "BeeTooltip",
-  "description": "",
+  "description": "A simple mod that displays the count of bees inside the Bee Hive and Bee Nest blocks in the tooltip.",
   "authors": [
     "spzla"
   ],
