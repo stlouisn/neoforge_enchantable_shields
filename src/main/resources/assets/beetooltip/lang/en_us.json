@@ -1,0 +1,12 @@
+{
+  "beehivetooltip.title": "Beehive Tooltip",
+  "beehivetooltip.option.enabled": "Enabled",
+  "beehivetooltip.option.beemode": "Bee Mode",
+  "beehivetooltip.option.displaymode": "Display Mode",
+  "beehivetooltip.option.enabled.description": "Enable the mod",
+  "beehivetooltip.option.beemode.description": "\uD83D\uDC1D",
+  "beehivetooltip.option.displaymode.description": "Controls how the tooltip is displayed.\n COMPACT - display only count of the bees\n EXTENDED - display the bees with their custom names (if they have one)",
+  "beehivetooltip.empty": "Empty",
+  "beehivetooltip.compact": "Bees: %d/%d",
+  "beehivetooltip.extended.title": "Contains:"
+}

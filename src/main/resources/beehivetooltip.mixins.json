@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "me.spzla.beetooltip.mixin",
+  "package": "me.spzla.beehivetooltip.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
     "BeehiveBlockMixin"
