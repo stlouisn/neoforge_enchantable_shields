@@ -24,7 +24,8 @@ public class BeehiveTooltipConfig {
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public boolean enabled = true;
-    public boolean beeMode = false;
+    public boolean unicodeMode = false;
+    public HealthDisplayEnum healthDisplay = HealthDisplayEnum.COMPACT;
     public TooltipDisplayModeEnum displayMode = TooltipDisplayModeEnum.COMPACT;
 
     public void save() {
@@ -33,7 +34,8 @@ public class BeehiveTooltipConfig {
 
             JsonObject json = new JsonObject();
             json.addProperty("enabled", enabled);
-            json.addProperty("beeMode", beeMode);
+            json.addProperty("unicodeMode", unicodeMode);
+            json.addProperty("healthDisplay", healthDisplay.toString());
             json.addProperty("displayMode", displayMode.toString());
 
             Files.writeString(configFile, gson.toJson(json));
@@ -53,9 +55,11 @@ public class BeehiveTooltipConfig {
 
             if (json.has("enabled"))
                 enabled = json.getAsJsonPrimitive("enabled").getAsBoolean();
-            if (json.has("beeMode"))
-                beeMode = json.getAsJsonPrimitive("beeMode").getAsBoolean();
-            if (json.has("beeMode"))
+            if (json.has("unicodeMode"))
+                unicodeMode = json.getAsJsonPrimitive("unicodeMode").getAsBoolean();
+            if (json.has("healthDisplay"))
+                healthDisplay = HealthDisplayEnum.valueOf(json.getAsJsonPrimitive("healthDisplay").getAsString());
+            if (json.has("displayMode"))
                 displayMode = TooltipDisplayModeEnum.valueOf(json.getAsJsonPrimitive("displayMode").getAsString());
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,14 +82,25 @@ public class BeehiveTooltipConfig {
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
                         .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("beehivetooltip.option.beemode"))
-                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.beemode.description")))
+                                .name(Text.translatable("beehivetooltip.option.unicodemode"))
+                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.unicodemode.description")))
                                 .binding(
                                         false,
-                                        () -> beeMode,
-                                        value -> beeMode = value
+                                        () -> unicodeMode,
+                                        value -> unicodeMode = value
                                 )
                                 .controller(TickBoxControllerBuilder::create)
+                                .build())
+                        .option(Option.<HealthDisplayEnum>createBuilder()
+                                .name(Text.translatable("beehivetooltip.option.healthdisplay"))
+                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.healthdisplay.description")))
+                                .binding(
+                                        HealthDisplayEnum.COMPACT,
+                                        () -> healthDisplay,
+                                        value -> healthDisplay = value
+                                )
+                                .controller(opt -> EnumControllerBuilder.create(opt)
+                                        .enumClass(HealthDisplayEnum.class))
                                 .build())
                         .option(Option.<TooltipDisplayModeEnum>createBuilder()
                                 .name(Text.translatable("beehivetooltip.option.displaymode"))
