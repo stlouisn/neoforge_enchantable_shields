@@ -25,6 +25,7 @@ public class BeehiveTooltipConfig {
 
     public boolean enabled = true;
     public boolean unicodeMode = false;
+    public boolean honeyLevel = true;
     public HealthDisplayEnum healthDisplay = HealthDisplayEnum.COMPACT;
     public TooltipDisplayModeEnum displayMode = TooltipDisplayModeEnum.COMPACT;
 
@@ -35,6 +36,7 @@ public class BeehiveTooltipConfig {
             JsonObject json = new JsonObject();
             json.addProperty("enabled", enabled);
             json.addProperty("unicodeMode", unicodeMode);
+            json.addProperty("honeyLevel", honeyLevel);
             json.addProperty("healthDisplay", healthDisplay.toString());
             json.addProperty("displayMode", displayMode.toString());
 
@@ -57,6 +59,8 @@ public class BeehiveTooltipConfig {
                 enabled = json.getAsJsonPrimitive("enabled").getAsBoolean();
             if (json.has("unicodeMode"))
                 unicodeMode = json.getAsJsonPrimitive("unicodeMode").getAsBoolean();
+            if (json.has("honeyLevel"))
+                honeyLevel = json.getAsJsonPrimitive("honeyLevel").getAsBoolean();
             if (json.has("healthDisplay"))
                 healthDisplay = HealthDisplayEnum.valueOf(json.getAsJsonPrimitive("healthDisplay").getAsString());
             if (json.has("displayMode"))
@@ -88,6 +92,16 @@ public class BeehiveTooltipConfig {
                                         false,
                                         () -> unicodeMode,
                                         value -> unicodeMode = value
+                                )
+                                .controller(TickBoxControllerBuilder::create)
+                                .build())
+                        .option(Option.<Boolean>createBuilder()
+                                .name(Text.translatable("beehivetooltip.option.honeyhevel"))
+                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.honeyhevel.description")))
+                                .binding(
+                                        false,
+                                        () -> honeyLevel,
+                                        value -> honeyLevel = value
                                 )
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
