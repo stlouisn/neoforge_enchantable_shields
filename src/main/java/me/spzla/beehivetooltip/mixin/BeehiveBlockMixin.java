@@ -7,11 +7,11 @@ import me.spzla.beehivetooltip.config.TooltipDisplayModeEnum;
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BeehiveBlockEntity;
-import net.minecraft.client.item.TooltipType;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.BlockStateComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.text.MutableText;
@@ -29,7 +29,7 @@ public abstract class BeehiveBlockMixin extends BlockWithEntity {
     @Shadow @Final public static IntProperty HONEY_LEVEL;
     @Shadow @Final public static int FULL_HONEY_LEVEL;
 
-    private Formatting defaultFormatting = Formatting.YELLOW;
+    private final Formatting defaultFormatting = Formatting.YELLOW;
 
     protected BeehiveBlockMixin(Settings settings) {
         super(settings);
