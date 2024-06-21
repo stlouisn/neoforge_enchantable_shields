@@ -96,8 +96,8 @@ public class BeehiveTooltipConfig {
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
                         .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("beehivetooltip.option.honeyhevel"))
-                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.honeyhevel.description")))
+                                .name(Text.translatable("beehivetooltip.option.honeylevel"))
+                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.honeylevel.description")))
                                 .binding(
                                         false,
                                         () -> honeyLevel,
