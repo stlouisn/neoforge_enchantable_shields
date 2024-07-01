@@ -72,16 +72,47 @@ public class BeehiveTooltipConfig {
 
     public Screen makeScreen(Screen parent) {
         return YetAnotherConfigLib.createBuilder()
-                .title(Text.translatable("beehivetooltip.title"))
+                .title(Text.translatable("beehivetooltip.general.title"))
                 .category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("beehivetooltip.title"))
+                        .name(Text.translatable("beehivetooltip.general.title"))
                         .option(Option.<Boolean>createBuilder()
                                 .name(Text.translatable("beehivetooltip.option.enabled"))
-                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.enabled.description")))
                                 .binding(
                                         true,
                                         () -> enabled,
                                         value -> enabled = value
+                                )
+                                .controller(TickBoxControllerBuilder::create)
+                                .build())
+                        .option(Option.<TooltipDisplayModeEnum>createBuilder()
+                                .name(Text.translatable("beehivetooltip.option.displaymode"))
+                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.displaymode.description")))
+                                .binding(
+                                        TooltipDisplayModeEnum.COMPACT,
+                                        () -> displayMode,
+                                        value -> displayMode = value
+                                )
+                                .controller(opt -> EnumControllerBuilder.create(opt)
+                                        .enumClass(TooltipDisplayModeEnum.class))
+                                .build())
+                        .option(Option.<HealthDisplayEnum>createBuilder()
+                                .name(Text.translatable("beehivetooltip.option.healthdisplay"))
+                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.healthdisplay.description")))
+                                .binding(
+                                        HealthDisplayEnum.COMPACT,
+                                        () -> healthDisplay,
+                                        value -> healthDisplay = value
+                                )
+                                .controller(opt -> EnumControllerBuilder.create(opt)
+                                        .enumClass(HealthDisplayEnum.class))
+                                .build())
+                        .option(Option.<Boolean>createBuilder()
+                                .name(Text.translatable("beehivetooltip.option.honeylevel"))
+                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.honeylevel.description")))
+                                .binding(
+                                        false,
+                                        () -> honeyLevel,
+                                        value -> honeyLevel = value
                                 )
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
@@ -95,39 +126,8 @@ public class BeehiveTooltipConfig {
                                 )
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
-                        .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("beehivetooltip.option.honeylevel"))
-                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.honeylevel.description")))
-                                .binding(
-                                        false,
-                                        () -> honeyLevel,
-                                        value -> honeyLevel = value
-                                )
-                                .controller(TickBoxControllerBuilder::create)
-                                .build())
-                        .option(Option.<HealthDisplayEnum>createBuilder()
-                                .name(Text.translatable("beehivetooltip.option.healthdisplay"))
-                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.healthdisplay.description")))
-                                .binding(
-                                        HealthDisplayEnum.COMPACT,
-                                        () -> healthDisplay,
-                                        value -> healthDisplay = value
-                                )
-                                .controller(opt -> EnumControllerBuilder.create(opt)
-                                        .enumClass(HealthDisplayEnum.class))
-                                .build())
-                        .option(Option.<TooltipDisplayModeEnum>createBuilder()
-                                .name(Text.translatable("beehivetooltip.option.displaymode"))
-                                .description(OptionDescription.of(Text.translatable("beehivetooltip.option.displaymode.description")))
-                                .binding(
-                                        TooltipDisplayModeEnum.COMPACT,
-                                        () -> displayMode,
-                                        value -> displayMode = value
-                                )
-                                .controller(opt -> EnumControllerBuilder.create(opt)
-                                        .enumClass(TooltipDisplayModeEnum.class))
-                                .build())
-                        .build())
+                        .build()
+                )
                 .save(this::save)
                 .build()
                 .generateScreen(parent);

@@ -3,16 +3,17 @@
   "id": "beehivetooltip",
   "version": "${version}",
   "name": "Beehive Tooltip",
-  "description": "A simple mod that displays the count of bees inside the Bee Hive and Bee Nest blocks in the tooltip.",
+  "description": "A fabric mod that enhances item tooltips with detailed information about beehives and bee nests.",
   "authors": [
     "spzla"
   ],
   "contact": {
+    "homepage": "https://modrinth.com/mod/beehivetooltip",
     "repo": "https://github.com/spzla/BeehiveTooltip",
     "issues": "https://github.com/spzla/BeehiveTooltip/issues"
   },
   "license": "LGPL-3.0",
-  "icon": "assets/beetooltip/icon.png",
+  "icon": "assets/beehivetooltip/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [

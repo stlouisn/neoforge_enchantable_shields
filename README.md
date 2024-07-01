@@ -1,4 +1,2 @@
 # Beehive Tooltip
-A simple fabric mod that displays the count of bees inside the Bee Hive and Bee Nest blocks in the tooltip.
-
-Directly Inspired by [beeviewer](https://github.com/marvhus/beeviewer).
+A fabric mod that improves item tooltips by displaying hidden statistics of beehives and bee nests.
