@@ -1,18 +1,5 @@
 {
-  "beehivetooltip.general.title": "General",
-  "beehivetooltip.option.enabled": "Enabled",
-  "beehivetooltip.option.unicodemode": "Fancy Bee Icons",
-  "beehivetooltip.option.honeylevel": "Honey Level",
-  "beehivetooltip.option.healthdisplay": "Bee Health",
-  "beehivetooltip.option.displaymode": "Tooltip Display Mode",
-  "beehivetooltip.option.healthdisplay.description": "Change the display of bee health in the tooltip.\n\nNONE - Turn this feature off.\nCOMPACT - Display the number of hit points for each bee in the hive.\nEXTENDED - Display a fancy health bar for each bee in the hive.",
-  "beehivetooltip.option.unicodemode.description": "Include a fancy icon for each bee listed in the tooltip.\n\n\uD83D\uDC1D",
-  "beehivetooltip.option.honeylevel.description": "Display honey level",
-  "beehivetooltip.option.displaymode.description": "Change the information listed in the tooltip.\n\nCOMPACT - Display only the population number.\nEXTENDED - Display each bee with their health and custom name (when applicable).",
   "beehivetooltip.empty": "Empty",
   "beehivetooltip.honeylevel": "Honey Level: %d/%d",
-  "beehivetooltip.compact": "Bees: %d/%d",
-  "beehivetooltip.extended.title": "Contains:",
-  "beehivetooltip.healthdisplay.compact": ": %dhp",
-  "beehivetooltip.healthdisplay.extended": "   %s%s"
+  "beehivetooltip.count": "Bees: %d/%d"
 }

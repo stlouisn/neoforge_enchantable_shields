@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -16,15 +16,6 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
-    maven {
-        name 'Xander Maven'
-        url 'https://maven.isxander.dev/releases'
-    }
-
-    maven {
-        name = "Terraformers"
-        url = "https://maven.terraformersmc.com/"
-    }
 }
 
 dependencies {
@@ -35,8 +26,6 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}-fabric"
-    modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
 processResources {
@@ -76,9 +65,6 @@ java {
 }
 
 jar {
-    from("LICENSE") {
-        rename { "${it}_${project.archivesBaseName}"}
-    }
 }
 
 // configure the maven publication
