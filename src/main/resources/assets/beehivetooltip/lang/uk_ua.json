@@ -1,0 +1,18 @@
+{
+  "beehivetooltip.general.title": "Загальне",
+  "beehivetooltip.option.enabled": "Увімк.",
+  "beehivetooltip.option.unicodemode": "Красиві піктограми бджіл",
+  "beehivetooltip.option.honeylevel": "Рівень меду",
+  "beehivetooltip.option.healthdisplay": "Здоров’я бджоли",
+  "beehivetooltip.option.displaymode": "Режим підказки",
+  "beehivetooltip.option.healthdisplay.description": "Змінює режим показу здоров’я бджіл у підказці.\n\nNONE — функція вимкнена.\nCOMPACT — показ одиниць здоров’я кожної бджоли у вулику.\nEXTENDED — показ красивих смужок здоров’я кожної бджоли у вулику.",
+  "beehivetooltip.option.unicodemode.description": "Додає красиві піктограми кожної бджоли у вулику.\n\n\uD83D\uDC1D",
+  "beehivetooltip.option.honeylevel.description": "Показує рівень меду.",
+  "beehivetooltip.option.displaymode.description": "Змінює кількість інформації перерахованої у підказці.\n\nCOMPACT — показ лише кількості бджіл.\nEXTENDED — показ кожної бджоли, її здоров’я та імені (якщо є).",
+  "beehivetooltip.empty": "Порожньо",
+  "beehivetooltip.honeylevel": "Рівень меду: %d/%d",
+  "beehivetooltip.compact": "К-ть бджіл: %d/%d",
+  "beehivetooltip.extended.title": "Містить:",
+  "beehivetooltip.healthdisplay.compact": ": %d о/з",
+  "beehivetooltip.healthdisplay.extended": "   %s%s"
+}
