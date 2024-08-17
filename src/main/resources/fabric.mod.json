@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "beehivetooltip",
   "version": "${version}",
-  "name": "Beehive Tooltip",
+  "name": "Beehive Tooltip [C]",
   "description": "A fabric mod that enhances item tooltips with detailed information about beehives and bee nests.",
   "authors": [
     "spzla"
