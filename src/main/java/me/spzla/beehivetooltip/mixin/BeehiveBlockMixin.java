@@ -1,7 +1,6 @@
 package me.spzla.beehivetooltip.mixin;
 
 import net.minecraft.block.BeehiveBlock;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BeehiveBlockEntity;
 import net.minecraft.component.DataComponentTypes;
