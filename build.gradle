@@ -18,10 +18,6 @@ subprojects {
     apply plugin: 'dev.architectury.loom'
     apply plugin: 'architectury-plugin'
 
-//    base {
-//        archivesName = "${project.archives_base_name}-${project.minecraft_version}-${project.mod_version}"
-//    }
-
     repositories {
     }
 
