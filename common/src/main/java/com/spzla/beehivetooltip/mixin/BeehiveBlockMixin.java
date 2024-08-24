@@ -1,4 +1,4 @@
-package me.spzla.beehivetooltip.mixin;
+package com.spzla.beehivetooltip.mixin;
 
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.BlockWithEntity;
@@ -29,7 +29,7 @@ public abstract class BeehiveBlockMixin extends BlockWithEntity {
     public static int FULL_HONEY_LEVEL;
 
     @Unique
-    private final Formatting defaultFormatting = Formatting.YELLOW;
+    private final Formatting beehivetooltip$defaultFormatting = Formatting.YELLOW;
 
     protected BeehiveBlockMixin(Settings settings) {
         super(settings);
@@ -50,19 +50,19 @@ public abstract class BeehiveBlockMixin extends BlockWithEntity {
         if (blockState != null && !blockState.isEmpty()) {
             int honeyLevel = Integer.parseInt(blockState.properties().getOrDefault("honey_level", "0"));
             MutableText text = Text.translatable("beehivetooltip.honeylevel", honeyLevel, FULL_HONEY_LEVEL);
-            text.formatted(defaultFormatting);
+            text.formatted(beehivetooltip$defaultFormatting);
             tooltip.add(text);
         }
 
         if (count == 0) {
             MutableText text = Text.translatable("beehivetooltip.empty");
-            text.formatted(defaultFormatting);
+            text.formatted(beehivetooltip$defaultFormatting);
             tooltip.add(text);
             return;
         }
 
         MutableText text = Text.translatable("beehivetooltip.count", count, MAX_COUNT);
-        text.formatted(defaultFormatting);
+        text.formatted(beehivetooltip$defaultFormatting);
         tooltip.add(text);
 
     }
