@@ -8,7 +8,7 @@ architectury {
 }
 
 base {
-    archivesName = "${project.archives_base_name}-${project.minecraft_version}-fabric-${project.mod_version}"
+    archivesName = "${project.archives_base_name}-${project.minecraft_version}-fabric"
 }
 
 configurations {

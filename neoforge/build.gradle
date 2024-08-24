@@ -8,7 +8,7 @@ architectury {
 }
 
 base {
-    archivesName = "${rootProject.archives_base_name}-${rootProject.minecraft_version}-neoforge-${rootProject.mod_version}"
+    archivesName = "${rootProject.archives_base_name}-${rootProject.minecraft_version}-neoforge"
 }
 
 configurations {
