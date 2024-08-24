@@ -19,6 +19,7 @@ build
 .gradle
 
 # other
+.architectury-transformer
 eclipse
 run
 runs
