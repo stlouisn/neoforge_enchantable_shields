@@ -10,7 +10,7 @@ displayName = "${mod_name}"
 authors = "${mod_authors}"
 description = "${mod_description}"
 displayURL = "${url_homepage}"
-logoFile = "logo.png"
+logoFile = "assets/${mod_id}/icon.png"
 
 [[dependencies.${mod_id}]]
 modId = "minecraft"
