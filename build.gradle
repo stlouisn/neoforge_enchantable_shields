@@ -19,15 +19,25 @@ subprojects {
     apply plugin: 'architectury-plugin'
 
     repositories {
+
+        // Mod Menu
+        maven { url = "https://maven.terraformersmc.com/" }
+
     }
 
     dependencies {
+
         minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+//        // Official Mojang Mappings
 //        mappings(loom.officialMojangMappings())
+
+        // Yarn + NeoPatch Mappings
         mappings loom.layered {
             it.mappings("net.fabricmc:yarn:$rootProject.yarn_mappings:v2")
             it.mappings("dev.architectury:yarn-mappings-patch-neoforge:$rootProject.neoforge_mappings")
         }
+        
     }
 
     java {
