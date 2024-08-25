@@ -14,7 +14,7 @@
   },
   "license": "${mod_license}",
   "icon": "assets/${mod_id}/icon.png",
-  "environment": "client",
+  "environment": "${mod_fabric_environment}",
   "entrypoints": {
     "main": [
       "${maven_group}.fabric.${maven_main_package}"
