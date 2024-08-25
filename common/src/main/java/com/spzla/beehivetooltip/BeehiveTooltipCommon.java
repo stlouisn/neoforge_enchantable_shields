@@ -9,8 +9,7 @@ public final class BeehiveTooltipCommon {
 
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public static void commonInit()
-    {
+    public static void commonInit() {
     }
 
 }
