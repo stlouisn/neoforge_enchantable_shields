@@ -1,18 +1,16 @@
 # eclipse
-bin
-*.launch
+eclipse
 .settings
 .metadata
 .classpath
 .project
+*.launch
 
 # idea
-out
+.idea
 *.ipr
 *.iws
 *.iml
-.idea/*
-!.idea/scopes
 
 # gradle
 build
@@ -20,6 +18,5 @@ build
 
 # other
 .architectury-transformer
-eclipse
 run
 runs

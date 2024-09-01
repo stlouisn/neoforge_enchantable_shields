@@ -6,7 +6,7 @@ issueTrackerURL = "${url_issues}"
 [[mods]]
 modId = "${mod_id}"
 version = "${mod_version}"
-displayName = "${mod_name}"
+displayName = "${mod_name} [C]"
 authors = "${mod_authors}"
 description = "${mod_description}"
 displayURL = "${url_homepage}"

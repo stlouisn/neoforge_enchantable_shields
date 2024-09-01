@@ -1,14 +1,11 @@
 package com.spzla.beehivetooltip.neoforge;
 
+import com.spzla.beehivetooltip.BeehiveTooltipCommon;
 import net.neoforged.fml.common.Mod;
 
-import com.spzla.beehivetooltip.BeehiveTooltipCommon;
+@Mod(BeehiveTooltipCommon.MOD_ID) public final class BeehiveTooltip {
 
-@Mod(BeehiveTooltipCommon.MOD_ID)
-public final class BeehiveTooltip {
-
-    public BeehiveTooltip() {
-        BeehiveTooltipCommon.commonInit();
-    }
-
+  public BeehiveTooltip() {
+    BeehiveTooltipCommon.commonInit();
+  }
 }

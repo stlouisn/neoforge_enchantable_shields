@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "${mod_id}",
   "version": "${mod_version}",
-  "name": "${mod_name}",
+  "name": "${mod_name} [C]",
   "description": "${mod_description}",
   "authors": [
     "${mod_authors}"
@@ -17,7 +17,7 @@
   "environment": "${mod_fabric_environment}",
   "entrypoints": {
     "main": [
-      "${maven_group}.fabric.${maven_main_package}"
+      "com.spzla.beehivetooltip.fabric.BeehiveTooltip"
     ]
   },
   "mixins": [

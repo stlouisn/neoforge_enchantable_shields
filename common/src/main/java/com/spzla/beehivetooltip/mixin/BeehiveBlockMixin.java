@@ -1,5 +1,6 @@
 package com.spzla.beehivetooltip.mixin;
 
+import java.util.List;
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BeehiveBlockEntity;
@@ -17,53 +18,36 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
-import java.util.List;
+@Mixin(BeehiveBlock.class) public abstract class BeehiveBlockMixin extends BlockWithEntity {
 
-@Mixin(BeehiveBlock.class)
-public abstract class BeehiveBlockMixin extends BlockWithEntity {
+  @SuppressWarnings("unused")
+  @Shadow @Final public static IntProperty HONEY_LEVEL;
 
-    @Shadow @Final
-    public static IntProperty HONEY_LEVEL;
+  @Shadow @Final public static int FULL_HONEY_LEVEL;
 
-    @Shadow @Final
-    public static int FULL_HONEY_LEVEL;
+  @Unique private final Formatting beehivetooltip$defaultFormatting = Formatting.YELLOW;
 
-    @Unique
-    private final Formatting beehivetooltip$defaultFormatting = Formatting.YELLOW;
+  protected BeehiveBlockMixin(Settings settings) {
+    super(settings);
+  }
 
-    protected BeehiveBlockMixin(Settings settings) {
-        super(settings);
+  @Unique @Override public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+    super.appendTooltip(stack, context, tooltip, options);
+    List<BeehiveBlockEntity.BeeData> beeData = stack.getOrDefault(DataComponentTypes.BEES, List.of());
+    int count = beeData.size();
+    final int MAX_COUNT = 3;
+    BlockStateComponent blockState = stack.get(DataComponentTypes.BLOCK_STATE);
+    if (blockState != null && !blockState.isEmpty()) {
+      int honeyLevel = Integer.parseInt(blockState.properties().getOrDefault("honey_level", "0"));
+      MutableText text = Text.translatable("beehivetooltip.honeylevel", honeyLevel, FULL_HONEY_LEVEL).formatted(beehivetooltip$defaultFormatting);
+      tooltip.add(text);
     }
-
-    @Unique
-    @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
-        super.appendTooltip(stack, context, tooltip, options);
-
-        List<BeehiveBlockEntity.BeeData> beeData = stack.getOrDefault(DataComponentTypes.BEES, List.of());
-
-        int count = beeData.size();
-        final int MAX_COUNT = 3;
-
-        BlockStateComponent blockState = stack.get(DataComponentTypes.BLOCK_STATE);
-
-        if (blockState != null && !blockState.isEmpty()) {
-            int honeyLevel = Integer.parseInt(blockState.properties().getOrDefault("honey_level", "0"));
-            MutableText text = Text.translatable("beehivetooltip.honeylevel", honeyLevel, FULL_HONEY_LEVEL);
-            text.formatted(beehivetooltip$defaultFormatting);
-            tooltip.add(text);
-        }
-
-        if (count == 0) {
-            MutableText text = Text.translatable("beehivetooltip.empty");
-            text.formatted(beehivetooltip$defaultFormatting);
-            tooltip.add(text);
-            return;
-        }
-
-        MutableText text = Text.translatable("beehivetooltip.count", count, MAX_COUNT);
-        text.formatted(beehivetooltip$defaultFormatting);
-        tooltip.add(text);
-
+    if (count == 0) {
+      MutableText text = Text.translatable("beehivetooltip.empty").formatted(beehivetooltip$defaultFormatting);
+      tooltip.add(text);
+      return;
     }
+    MutableText text = Text.translatable("beehivetooltip.count", count, MAX_COUNT).formatted(beehivetooltip$defaultFormatting);
+    tooltip.add(text);
+  }
 }
