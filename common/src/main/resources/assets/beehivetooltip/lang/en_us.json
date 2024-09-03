@@ -1,5 +1,9 @@
 {
+
+  "modmenu.modrinth": "Modrinth",
+
   "beehivetooltip.empty": "Empty",
   "beehivetooltip.honeylevel": "Honey Level: %d/%d",
   "beehivetooltip.count": "Bees: %d/%d"
+
 }

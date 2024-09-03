@@ -1,14 +1,8 @@
 plugins {
-
-  // https://github.com/architectury/architectury-loom
-  id "dev.architectury.loom" version "1.7-SNAPSHOT" apply false
-
-  // https://github.com/architectury/architectury-plugin
-  id "architectury-plugin" version "3.4-SNAPSHOT"
-
-  // https://gradleup.com/shadow/getting-started/
-  id "com.gradleup.shadow" version "8.3.0" apply false
-
+  id "dev.architectury.loom" version "${architectury_loom_version}-SNAPSHOT" apply false
+  id "architectury-plugin" version "${architectury_plugin_version}-SNAPSHOT"
+  id "com.gradleup.shadow" version "${shadow_plugin_version}" apply false
+  id "java"
 }
 
 architectury {
@@ -16,14 +10,15 @@ architectury {
 }
 
 allprojects {
-  group = rootProject.maven_group
-  version = rootProject.mod_version
+  group = project.maven_group
+  version = project.mod_version
 }
 
 subprojects {
 
-  apply plugin: 'dev.architectury.loom'
-  apply plugin: 'architectury-plugin'
+  apply plugin: "dev.architectury.loom"
+  apply plugin: "architectury-plugin"
+  apply plugin: "java"
 
   repositories {
 
@@ -36,13 +31,10 @@ subprojects {
 
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
 
-//    // Official Mojang Mappings
-//    mappings(loom.officialMojangMappings())
-
     // Yarn + NeoPatch Mappings
     mappings loom.layered {
-      it.mappings("net.fabricmc:yarn:$rootProject.yarn_mappings:v2")
-      it.mappings("dev.architectury:yarn-mappings-patch-neoforge:$rootProject.neoforge_mappings")
+      it.mappings("net.fabricmc:yarn:$project.yarn_mappings:v2")
+      it.mappings("dev.architectury:yarn-mappings-patch-neoforge:$project.neoforge_mappings")
     }
 
   }
@@ -66,6 +58,7 @@ subprojects {
 
   tasks.withType(JavaCompile).configureEach {
     it.options.release = 21
+    it.options.encoding = "UTF-8"
   }
 
   processResources {

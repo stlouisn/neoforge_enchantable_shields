@@ -28,9 +28,13 @@
     "minecraft": "${minecraft_version}",
     "architectury": ">=${architectury_api_version}"
   },
+  "recommends": {
+    "modmenu": "*"
+  },
   "custom": {
     "modmenu": {
       "links": {
+        "modmenu.modrinth": "${url_modrinth}",
         "modmenu.discord": "${url_discord}"
       }
     }
