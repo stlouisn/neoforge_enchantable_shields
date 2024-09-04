@@ -12,4 +12,10 @@ dependencies {
 
   modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
 
+  loom {
+    mixin {
+      defaultRefmapName.set("${project.archives_base_name}.refmap.json")
+    }
+  }
+
 }
