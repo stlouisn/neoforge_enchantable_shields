@@ -17,10 +17,6 @@ dependencies {
   minecraft "com.mojang:minecraft:${minecraft_version}"
   neoForge "net.neoforged:neoforge:${neoforge_version}"
   loom {
-    mixin {
-      mixin.useLegacyMixinAp = true
-      defaultRefmapName.set("${archives_base_name}.refmap.json")
-    }
     if (file("src/main/resources/${archives_base_name}.accesswidener").exists()) {
       accessWidenerPath = file("src/main/resources/${archives_base_name}.accesswidener")
     }
