@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "dev.beehivetooltip.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8.5",
+  "client": [
+    "BeehiveBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
