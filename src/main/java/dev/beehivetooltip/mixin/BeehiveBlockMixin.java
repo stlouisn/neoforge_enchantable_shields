@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(BeehiveBlock.class) public abstract class BeehiveBlockMixin extends BlockWithEntity {
 
+  @SuppressWarnings("unused")
   @Shadow @Final public static IntProperty HONEY_LEVEL;
 
   @Shadow @Final public static int FULL_HONEY_LEVEL;

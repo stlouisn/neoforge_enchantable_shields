@@ -24,7 +24,17 @@ dependencies {
 }
 
 apply from: "build-mappings.gradle"
-apply from: "build-dependencies.gradle"
+
+if (file("build-dependencies.gradle").exists()) { apply from: "build-dependencies.gradle" }
+
+if (file("build-runtime.gradle").exists()) { apply from: "build-runtime.gradle" }
+
+idea {
+  module {
+    downloadSources = true
+    downloadJavadoc = true
+  }
+}
 
 java {
   sourceCompatibility = JavaVersion.VERSION_21
