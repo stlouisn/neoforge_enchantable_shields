@@ -1,21 +1,18 @@
 # eclipse
 eclipse
+*.launch
 .settings
 .metadata
 .classpath
 .project
-*.launch
 
 # idea
-.idea/libraries
-.idea/modules
-.idea/runConfigurations
-.idea/.gitignore
-.idea/.name
-.idea/*.xml
+out
 *.ipr
 *.iws
 *.iml
+.idea/*
+!.idea/dictionaries
 
 # gradle
 build
