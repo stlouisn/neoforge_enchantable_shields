@@ -21,6 +21,7 @@ dependencies {
       accessWidenerPath = file("src/main/resources/${archives_base_name}.accesswidener")
     }
   }
+  implementation "org.jetbrains:annotations:latest.release"
 }
 
 apply from: "build-mappings.gradle"
