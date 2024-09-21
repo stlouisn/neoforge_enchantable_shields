@@ -1,7 +1,12 @@
-/ Yarn Mappings /
+/ Yarn + Parchment Mappings /
+repositories { maven { url = "https://maven.parchmentmc.org" }}
 dependencies {
   mappings loom.layered() {
     it.mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
     it.mappings "dev.architectury:yarn-mappings-patch-neoforge:${yarn_mappings_patch_neoforge}"
+    it.parchment "org.parchmentmc.data:parchment-${parchment_version}@zip"
   }
 }
+println("\nYarn Mappings: $yarn_mappings")
+println("NeoForge Yarn Patch: $yarn_mappings_patch_neoforge")
+println("ParchmentMC: $parchment_version")

@@ -27,6 +27,8 @@ apply from: "build-mappings.gradle"
 
 if (file("build-dependencies.gradle").exists()) { apply from: "build-dependencies.gradle" }
 
+if (file("src/main/resources/*.mixins.json")) { apply from: "build-mixins.gradle" }
+
 if (file("build-runtime.gradle").exists()) { apply from: "build-runtime.gradle" }
 
 idea {
